@@ -8,6 +8,9 @@ on init
     start configure_vold
     wait /dev/.vold_configured
 
+on boot
+    start postrecoveryboot
+
 service fsfinder /sbin/fsfinder
     class core
     disabled
@@ -21,4 +24,8 @@ service emmc_protect /sbin/recovery_emmc_protect.sh start
 service configure_vold /sbin/configure_vold.sh
     class core
     disabled
+    oneshot
+
+service postrecoveryboot /sbin/postrecoveryboot.sh
+    class core
     oneshot

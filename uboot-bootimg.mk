@@ -23,7 +23,7 @@
 #    BOARD_USES_UBOOT_MULTIIMAGE := true
 # 
 
-MKIMAGE=$(which mkimage)
+MKIMAGE=$(shell which mkimage)
 
 #
 # Ramdisk/boot image

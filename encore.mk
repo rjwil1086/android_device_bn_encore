@@ -162,15 +162,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
         $(LOCAL_PATH)/ramdisk_tools.sh:ramdisk_tools.sh
 
-# additions to recovery
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/recovery/postrecoveryboot.sh:recovery/root/sbin/postrecoveryboot.sh
-
-# XXX MAGIC: build process will delete any existing init.*.rc files from the
-# recovery image, then copy this file from the main initramfs to the recovery
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/recovery/init.recovery.encore.rc:root/init.recovery.encore.rc
-
 # Product specfic packages
 PRODUCT_PACKAGES += \
     hwcomposer.omap3 \
