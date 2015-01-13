@@ -10,6 +10,7 @@ on init
 
 on boot
     start postrecoveryboot
+    start set_permissive
 
 service fsfinder /sbin/fsfinder
     class core
@@ -28,4 +29,5 @@ service configure_vold /sbin/configure_vold.sh
 
 service postrecoveryboot /sbin/postrecoveryboot.sh
     class core
+    disabled
     oneshot

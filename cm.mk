@@ -14,8 +14,6 @@
 # limitations under the License.
 #
 
-$(call inherit-product, device/bn/encore/full_encore.mk)
-
 PRODUCT_RELEASE_NAME := NookColor
 
 # We need screen width/height defined before inheriting
@@ -26,9 +24,18 @@ TARGET_SCREEN_WIDTH := 600
 TARGET_BOOTANIMATION_HALF_RES := true
 
 # Inherit some common CM stuff.
-$(call inherit-product, vendor/cm/config/common_mini_tablet_wifionly.mk)
+$(call inherit-product, vendor/cm/config/common_full_tablet_wifionly.mk)
 
+# Inherit device configuration
+$(call inherit-product, device/bn/encore/full_encore.mk)
+
+## Device identifier. This must come after all includes
+PRODUCT_DEVICE := encore
+PRODUCT_NAME := cm_encore
+PRODUCT_BRAND := bn
+PRODUCT_MODEL := Nook Color
+PRODUCT_MANUFACTURER := bn
+
+#Set build fingerprint / ID / Product Name ect.
 PRODUCT_BUILD_PROP_OVERRIDES += PRODUCT_NAME=encore BUILD_FINGERPRINT="bn/bn_encore/encore:4.4.4/KTU84P/1227136:user/release-keys" PRIVATE_BUILD_DESC="encore-user 4.4.4 KTU84P 1227136 release-keys"
 
-PRODUCT_NAME := cm_encore
-PRODUCT_DEVICE := encore

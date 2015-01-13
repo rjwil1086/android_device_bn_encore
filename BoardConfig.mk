@@ -148,6 +148,9 @@ TARGET_BOOTANIMATION_USE_RGB565 := true
 # Recovery options
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/bn/encore/recovery/recovery_keys.c
 BOARD_CUSTOM_RECOVERY_UI := ../../device/bn/encore/recovery/recovery_ui.c
+BOARD_HAS_LARGE_FILESYSTEM := true
+TARGET_USERIMAGES_USE_EXT4 := true
+TARGET_USERIMAGES_USE_F2FS := true
 TARGET_RECOVERY_PRE_COMMAND := "/system/bin/mount -t vfat -o sync,noatime,umask=0077 /dev/block/mmcblk0p2 /rom; /system/bin/dd if=/dev/zero of=/rom/bcb bs=64 count=1 > /dev/null 2>&1 ; echo 'recovery' >> /rom/bcb ; /system/bin/sync"
 TARGET_RECOVERY_FSTAB := device/bn/encore/fstab.encore
 TARGET_RECOVERY_DEVICE_DIRS += device/bn/encore
@@ -155,12 +158,16 @@ RECOVERY_FSTAB_VERSION := 2
 
 #Config for building TWRP
 DEVICE_RESOLUTION := 1024x600
+BOARD_HAS_NO_READ_SDCARD := true
 TW_INCLUDE_JB_CRYPTO := true
 TW_FLASH_FROM_STORAGE := true
 TW_NO_REBOOT_BOOTLOADER := true
 TW_NO_REBOOT_RECOVERY := true
+TW_MAX_BRIGHTNESS := 255
+TW_BRIGHTNESS_PATH := "/sys/devices/platform/omap_pwm_led/leds/lcd-backlight/brightness"
 
 TW_INTERNAL_STORAGE_PATH := "/emmc"
 TW_INTERNAL_STORAGE_MOUNT_POINT := "emmc"
-TW_EXTERNAL_STORAGE_PATH := "/sdc"
-TW_EXTERNAL_STORAGE_MOUNT_POINT := "sdc"
+TW_EXTERNAL_STORAGE_PATH := "/sdcard"
+TW_EXTERNAL_STORAGE_MOUNT_POINT := "sdcard"
+

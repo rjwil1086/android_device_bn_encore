@@ -17,9 +17,3 @@ umount /rom
 # script and other shell scripts for the regular, non-recovery environment
 rmdir /system/bin
 ln -s /sbin /system/bin
-
-# Align /sdcard and /emmc with their usage in the non-recovery environment
-rmdir /emmc
-ln -s /storage/sdcard0 /emmc
-rmdir /sdcard
-ln -s /storage/sdcard1 /sdcard

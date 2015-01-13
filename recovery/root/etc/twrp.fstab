@@ -1,6 +1,7 @@
 /boot		vfat		/dev/block/by-name/boot
-/system		ext4		/dev/block/by-name/system
-/data		ext4		/dev/block/by-name/userdata
-/cache		ext4		/dev/block/mmcblk0p7
-/rom		vfat		/dev/block/mmcblk0p2
-
+/rom		vfat		/dev/block/mmcblk0p2		flags=display="Rom"
+/system		f2fs		/dev/block/by-name/system	rw,discard,nosuid,nodev,noatime,nodiratime,inline_xattr wait
+/data		f2fs		/dev/block/by-name/userdata	rw,discard,nosuid,nodev,noatime,nodiratime,inline_xattr wait
+/cache		f2fs		/dev/block/mmcblk0p7		rw,discard,nosuid,nodev,noatime,nodiratime,inline_xattr wait
+/emmc		vfat		/dev/block/mmcblk0p8		flags=display="Internal SD Card";storage;wipeingui;settingsstorage
+/sdcard		vfat		/dev/block/mmcblk1p1		flags=display="External SD Card";storage;wipeingui;removable
